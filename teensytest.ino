@@ -880,18 +880,31 @@ void loop() {
        if(digitalRead(Enter) == HIGH){inMenu = true;clear_output();}//return to main menu
     }
     if(i == 9){//strobe
+adjust_severity(1,1000);
 
-       delay(10);
-       CS[5] = 0;
-       CS[8] = 16;
-       OutputColourSpectrum();
-       DisplayColourSpectrum();
-       
-       delay(10);
+       delay(1000/severity);
+       CS[2] = 16;
+       CS[3] = 16;
+       CS[4] = 16;
        CS[5] = 16;
-       CS[8] = 0;
+       CS[6] = 16;
+       CS[7] = 16;
+       CS[8] = 16;
+       CS[9] = 16;
        OutputColourSpectrum();
-       DisplayColourSpectrum();
+       //DisplayColourSpectrum();
+       
+       delay(1000/severity);
+       CS[2] = 0;
+       CS[3] = 0;
+       CS[4] = 0;
+       CS[5] = 0;
+       CS[6] = 0;
+       CS[7] = 0;
+       CS[8] = 0;
+       CS[9] = 0;
+       OutputColourSpectrum();
+       //DisplayColourSpectrum();
        
        if(digitalRead(Enter) == HIGH){inMenu = true;clear_output();}//return to main menu
     }
